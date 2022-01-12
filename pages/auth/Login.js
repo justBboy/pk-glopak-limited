@@ -11,7 +11,10 @@ export default function Login(){
     const [email, setEmail] = useState();
     const [password, setPassword] = useState("");
     useEffect(() => {
-        dispatch(setPage('auth/login')) 
+        let mounted = true
+        if(mounted)
+            dispatch(setPage('auth/login')) 
+        return () => {mounted=false}
     }, [])
 
     const handleSubmit = () => {

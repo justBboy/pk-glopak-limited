@@ -4,8 +4,11 @@ import Heading from "./Parts/Heading";
 import { motion } from "framer-motion";
 
 import services from "../constants/services.json";
+import { useStore } from "../store/store";
+import { setPage } from "../store/actions";
 
 export default function Services() {
+  const [{_}, dispatch] = useStore();
   const [currentService, setCurrentService] = useState(0);
   let timer = useRef(null);
   const [fixed, setFixed] = useState(false);
@@ -40,10 +43,19 @@ export default function Services() {
     };
     window.addEventListener("scroll", checkInView);
 
+
     return () => {
       window.removeEventListener("scroll", checkInView);
     };
   }, []);
+
+  useEffect(() => {
+    const mounted = true;
+    if(containerInView && mounted){
+        dispatch(setPage('home/services'))
+    }
+    return () => {mounted=false}
+  }, [containerInView])
 
 
   useEffect(() => {
@@ -65,7 +77,7 @@ export default function Services() {
       ref={containerRef}
       className="h-[100vh] flex flex-col p-3 md:p-10 relative bg-bg-dark z-10"
     >
-      <div className="container sticky p-0 top-0 overflow-hidden mx-auto h-full">
+      <div className="container sticky p-0 top-0 overflow-hidden mx-auto h-full" id="services">
         <Heading title="Services" className="text-center mb-3 sm:mb-0" />
         <div className="flex flex-col justify-center overflow-hidden h-full">
           <div className="flex flex-1 text-right flex-col lg:flex-row lg:justify-between">

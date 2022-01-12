@@ -1,10 +1,27 @@
 import Image from "next/image";
 import {FaSun} from "react-icons/fa";
 import {motion} from "framer-motion";
+import { useStore } from "../store/store";
+import { useEffect } from "react";
+import { setPage } from "../store/actions";
+import { useInView } from "react-intersection-observer";
 
 export default function Hero(){
+    const {ref: containerRef, inView: containerInView} = useInView({
+        threshold: 0.6 
+    })
+    const [_, dispatch] = useStore();
+  useEffect(() => {
+    let mounted = true;
+        if(mounted){
+            if(containerInView){
+                dispatch(setPage('home'))
+            }
+        }
+        return () => {mounted= false} 
+  }, [containerInView])
     return (
-        <div className="container md:pl-20 md:pr-20 mx-auto rounded-md from-light/95 to-secondary/50 bg-gradient-to-t shadow-dark-gray">
+        <div ref={containerRef} className="container md:pl-20 md:pr-20 mx-auto rounded-md from-light/95 to-secondary/50 bg-gradient-to-t shadow-dark-gray" id="hero">
             <div className="relative min-h-[60vh] md:min-h-[80vh]">
                 <motion.div 
                 initial={{

@@ -13,10 +13,7 @@ import { useStore } from '../store/store';
 import { setPage } from '../store/actions';
 
 export default function Home() {
-  const [_, dispatch] = useStore();
-  useEffect(() => {
-    dispatch(setPage('home')) 
-  }, [])
+  
   return (
     <motion.div 
     initial={{

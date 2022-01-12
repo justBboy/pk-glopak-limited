@@ -1,7 +1,14 @@
 import { useInView } from "react-intersection-observer"
 import {motion} from "framer-motion";
 import Heading from "./Parts/Heading";
+import { useEffect } from "react";
+import { useStore } from "../store/store";
+import { setPage } from "../store/actions";
 export default function About(){
+    const [{page}, dispatch] = useStore();
+    const {ref: containerRef, inView: containerInView} = useInView({
+        threshold: 0.5
+    })
     const {ref: para1Ref, inView: para1InView} = useInView({
         threshold: 0.5,
         triggerOnce: true
@@ -14,9 +21,18 @@ export default function About(){
         threshold: 0.5,
         triggerOnce: true
     })
+    console.log(page, containerInView)
+    useEffect(() => {
+        let mounted = true;
+        if(mounted){
+            if(containerInView)
+                dispatch(setPage('home/about'))
+        }
+        return () => {mounted = false}
+    }, [containerInView])
 
     return(
-        <div className="px-2 py-10 sm:p-10 relative overflow-hidden">
+        <div ref={containerRef} className="px-2 py-10 sm:p-10 relative overflow-hidden" id="about">
             <div className="container mx-auto text-center">
                 <Heading title="About Us" /> 
                 <div className="flex flex-col md:flex-row items-center justify-between py-2 sm:px-10 w-full h-auto">

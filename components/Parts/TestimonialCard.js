@@ -2,7 +2,6 @@ import Image from "next/image";
 import {BsFillChatLeftQuoteFill} from "react-icons/bs";
 
 export default function TestimonialCard({body, name, img}){
-    console.log(body, name, img)
     return (
             <div className="flex justify-center items-center sm:flex-row flex-col">
                         <div className="max-w-[500px] w-full text-right">

@@ -14,7 +14,10 @@ export default function Register(){
     const [confirmPassword, setConfirmPassword] = useState("");
 
     useEffect(() => {
-        dispatch(setPage('auth/register')) 
+        let mounted = true
+        if(mounted)
+            dispatch(setPage('auth/register')) 
+        return () => {mounted=false}
     }, [])
 
     const handleSubmit = () => {

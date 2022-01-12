@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { MdAccountCircle } from "react-icons/md";
 import {IoIosArrowBack} from "react-icons/io";
 import { useStore } from "../store/store";
+import navigation from "../constants/navigation.json";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [{ page }, dipatch] = useStore();
+  const [{ page }] = useStore();
+  
   useEffect(function () {
     const mounted = true;
     if (mounted) {
@@ -43,124 +45,41 @@ export default function Navbar() {
               </Link>
           }
           {
-              page == "home"
+              page.includes("home")
               &&
             <h2 className={`font-extrabold text-sm sm:text-lg text-light antialiased ${page.includes("auth/") ? 'mr-auto' : ''}`}>
             Pk Glopak LTD
             </h2>
           }
-        {page == "home" && (
+        {page.includes("home") && (
           <ul className="hidden md:flex justify-center items-center">
-            <motion.li
-              initial={{
-                opacity: 0,
-                y: -10,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                delay: 2.2,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="relative"
-            >
-              <Link href="/">
-                <a className="text-sm outline-none hover:text-lighter focus:text-lighter font-black antialiased text-light-gray after:content-[''] after:w-1/3 after:h-1 after:bg-lighter after:bottom-[-5px] after:left-[50%] after:translate-x-[-50%] after:hover:absolute after:focus:absolute">
-                  Home
-                </a>
-              </Link>
-            </motion.li>
-            <motion.li
-              initial={{
-                opacity: 0,
-                y: -10,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                delay: 2.3,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="ml-10 relative"
-            >
-              <Link href="/">
-                <a className="text-sm outline-none hover:text-lighter focus:text-lighter font-bold antialiased text-light-gray after:content-[''] after:w-1/3 after:h-1 after:bg-lighter after:bottom-[-5px] after:left-[50%] after:translate-x-[-50%] after:hover:absolute after:focus:absolute">
-                  About
-                </a>
-              </Link>
-            </motion.li>
-            <motion.li
-              initial={{
-                opacity: 0,
-                y: -10,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                delay: 2.4,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="ml-10 relative"
-            >
-              <Link href="/">
-                <a className="text-sm outline-none hover:text-lighter focus:text-lighter font-bold antialiased text-light-gray after:content-[''] after:w-1/3 after:h-1 after:bg-lighter after:bottom-[-5px] after:left-[50%] after:translate-x-[-50%] after:hover:absolute after:focus:absolute">
-                  Services
-                </a>
-              </Link>
-            </motion.li>
-            <motion.li
-              initial={{
-                opacity: 0,
-                y: -10,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                delay: 2.5,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="ml-10 relative"
-            >
-              <Link href="/">
-                <a className="text-sm outline-none hover:text-lighter focus:text-lighter font-bold antialiased text-light-gray after:content-[''] after:w-1/3 after:h-1 after:bg-lighter after:bottom-[-5px] after:left-[50%] after:translate-x-[-50%] after:hover:absolute after:focus:absolute">
-                  Testimonials
-                </a>
-              </Link>
-            </motion.li>
-            <motion.li
-              initial={{
-                opacity: 0,
-                y: -20,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                delay: 2.6,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="ml-10 relative"
-            >
-              <Link href="/">
-                <a className="text-sm outline-none hover:text-lighter focus:text-lighter transition-colors- font-bold antialiased text-light-gray after:content-[''] after:w-1/3 after:h-1 after:bg-lighter after:bottom-[-5px] after:left-[50%] after:translate-x-[-50%] after:hover:absolute after:focus:absolute">
-                  Contact
-                </a>
-              </Link>
-            </motion.li>
+              {
+                  navigation.map((nav, indx) => (
+                    <motion.li
+                    key={nav.title}
+                        initial={{
+                            opacity: 0,
+                            y: -10,
+                        }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 100,
+                            delay: 2.2,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            y: 0,
+                        }}
+                        className={`relative ${indx > 0 ? 'ml-5' : ''}`}
+                        >
+                        <Link href="/">
+                            <a href={`${nav.target}`} className={`text-sm outline-none ${nav.page==page ? "text-lighter after:absolute" : ""} hover:text-lighter focus:text-lighter font-black antialiased text-light-gray after:content-[''] after:w-1/3 after:h-1 after:bg-lighter after:bottom-[-5px] after:left-[50%] after:translate-x-[-50%] after:hover:absolute after:focus:absolute`}>
+                            {nav.title}
+                            </a>
+                        </Link>
+                    </motion.li>
+                  ))
+              }
           </ul>
         )}
         {

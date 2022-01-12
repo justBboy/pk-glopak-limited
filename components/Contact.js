@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "./Parts/Heading";
 import {MdSend, MdOutlinePhone, MdLocationCity} from "react-icons/md";
 import {motion} from "framer-motion";
 import {useInView} from "react-intersection-observer";
+import { useStore } from "../store/store";
+import { setPage } from "../store/actions";
 
 export default function Contact(){
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [phone, setPhone] = useState("");
+    const [_, dispatch] = useStore();
+    const {ref: containerRef, inView: containerInView} = useInView({
+        threshold: 0.5
+    })
 
     const {ref: input1Ref, inView: input1InView} = useInView({
         threshold: 0.5,
@@ -38,8 +44,17 @@ export default function Contact(){
     const handleSubmit = () => {
         console.log(submit)
     }
+
+    useEffect(() => {
+        let mounted = true;
+        if(mounted){
+            if(containerInView)
+                dispatch(setPage('home/contact'))
+        }
+        return () => {mounted = false}
+    }, [containerInView])
     return (
-        <div className="bg-bg-dark min-h-[60vh] w-full overflow-x-hidden py-10">
+        <div ref={containerRef} className="bg-bg-dark min-h-[60vh] w-full overflow-x-hidden py-10"  id="contact">
             <Heading title="Contact Us" className="text-center mb-5 sm:mb-28" />
             <div className="flex flex-col justify-center items-center lg:flex-row container mx-auto">
                 <div className="flex flex-col items-center lg:w-1/2 w-full">

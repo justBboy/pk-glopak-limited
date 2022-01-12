@@ -6,19 +6,21 @@ import {motion} from "framer-motion";
 import {Swiper, SwiperSlide} from "swiper/react";
 import TestimonialCard from "./Parts/TestimonialCard";
 import testimonials from "../constants/testimonials.json"
+import { useStore } from "../store/store";
+import Heading from "./Parts/Heading";
+import { useEffect } from "react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import Heading from "./Parts/Heading";
+import { setPage } from "../store/actions";
 
 export default function Testimonials(){
-    const {ref: headingRef, inView: headingInView} = useInView({
-        threshold: 0.5,
-        triggerOnce: true
-    });
-
+    const [_, dispatch] = useStore();
+    const {ref: containerRef, inView: containerInView} = useInView({
+        threshold: 0.5
+    })
     const handleOnSwiper = (swiper) => {
         console.log(swiper);
     }
@@ -26,8 +28,16 @@ export default function Testimonials(){
     const handleSlideChange = (slide) => {
         console.log(slide);
     }
+    useEffect(() => {
+        let mounted = true;
+        if(mounted){
+            if(containerInView)
+                dispatch(setPage('home/testimonials'))
+        }
+        return () => {mounted = false}
+    }, [containerInView])
     return (
-        <div className="min-h-[50vh] py-20 pb-20 md:pb-40 bg-bg-dark relative z-[1]">
+        <div ref={containerRef} className="min-h-[50vh] py-20 pb-20 md:pb-40 bg-bg-dark relative z-[1]" id="testimonials">
                 <div className="container mx-auto">
                     <Heading title="What Clients Say" className="text-center mb-5 sm:mb-28" />
                     <Swiper

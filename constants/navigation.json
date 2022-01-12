@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Home",
+        "page": "home",
+        "target": "#hero"
+    },
+    {
+        "title": "About",
+        "page": "home/about",
+        "target": "#about"
+    },
+    {
+        "title": "Services",
+        "page": "home/services",
+        "target": "#services"
+    },
+    {
+        "title": "testimonials",
+        "page": "home/testimonials",
+        "target": "#testimonials"
+    },
+    {
+        "title": "Contact",
+        "page": "home/contact",
+        "target": "#contact"
+    }
+]
