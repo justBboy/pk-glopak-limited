@@ -189,7 +189,7 @@ export default function Navbar() {
                 </div>
            } 
            {
-               page == "auth/register"
+               page.includes("auth/") && page !="auth/login"
                &&
                 <div className="flex items-center">
                     <h3 className="text-text-light pr-3 ">Already have an account? </h3>
