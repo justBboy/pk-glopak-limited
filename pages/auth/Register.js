@@ -44,10 +44,10 @@ export default function Register(){
             </Head>
             <main>
                 <Navbar />
-                <div className="container mx-auto py-[100px] flex flex-col items-center">
+                <div className="container mx-auto py-[100px] flex flex-col relative z-1 items-center w-full">
                     <h3 className="text-md font-extrabold capitalize text-dark-gray">Create An Account</h3>
-                    <div className="mt-6 mb-5 flex flex-col items-start">
-                        <div className="flex items-center">
+                    <div className="mt-6 mb-5 flex flex-col items-center sm:items-start">
+                        <div className="flex items-center flex-col sm:flex-row">
                         <motion.div 
                         initial={{
                             opacity: 0,
@@ -80,7 +80,7 @@ export default function Register(){
                             opacity: 1, 
                             y: 0
                         }}
-                     className="mb-2 ml-3">
+                     className="mb-2 sm:ml-3">
                          <div className="flex justify-between">
                             <label className="block text-text-light font-normal text-sm" htmlFor="Phone">Phone: </label>
                          </div>
@@ -175,7 +175,7 @@ export default function Register(){
                     </div>
                 </div>
 
-                <footer className="border-t border-text-light w-full h-[70px] fixed bottom-0 px-5 flex items-center">
+                <footer className="border-t border-text-light w-full h-[70px] bg-bg-dark fixed bottom-0 px-5 z-40 flex items-center">
                         <h6 className="text-text-light text-sm font-bold">©Copyright 2021 Pk-Glopak. All Rights Reserved</h6>
                 </footer>
             </main>
