@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Navbar } from "../../components";
 import { setPage } from "../../store/actions";

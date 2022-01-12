@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Navbar } from "../../components";
 import { setPage } from "../../store/actions";
 import { useStore } from "../../store/store";
@@ -14,6 +12,7 @@ export default function Register(){
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+
     useEffect(() => {
         dispatch(setPage('auth/register')) 
     }, [])
