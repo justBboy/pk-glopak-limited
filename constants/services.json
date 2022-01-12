@@ -1,0 +1,67 @@
+[
+    {
+        "title": "Travel And Tour",
+        "img": "/tour.jpg",
+        "services": [
+            {
+                "title": "Tourist Work permit Business visas"
+            },
+            {
+                "title": "Hotel & Flight reservations"
+            },
+            {
+                "title": "Visa appeal services"
+            },
+            {
+                "title": "Summer & Winter work programs"
+            },
+            {
+                "title": "Passport & Birth certificate Acquisition"
+            }, 
+            {
+                "title": "America lottery Application"
+            } 
+        ]
+    },
+    {
+        "title": "Study abroad / Education Consultancy",
+        "img": "/student-abroad.jpg",
+        "services": [
+            {
+                "title": "Study Abroad with Scholarship"
+            },
+            {
+                "title":"Study with Full scholarship in China",
+                "sub": [
+                    "Tuition fee Coverage",
+                    "Monthly Stipends",
+                    "Accommodation Coverage",
+                    "Diverse Cultural Integration",
+                    "Diverse Cultural Integration"
+                ]
+            },
+            {
+                "title": "Level Of Study",
+                "sub": [
+                    "Certificates, Undergraduates, Masters and PhD programs.",
+                    "IELTS, TOFFEL & Duolingo Registration"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Trade",
+        "img": "/trade.jpg",
+        "services": [
+            {
+                "title": "Sale of Furnitures "
+            },
+            {
+                "title": "Sale of Traditional Kente Clothing"
+            },
+            {
+                "title": "Mobile Money Services"
+            }
+        ]
+    }
+]
