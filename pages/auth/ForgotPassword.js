@@ -30,7 +30,7 @@ export default function ForgotPassword(){
             <main>
                 <Navbar />
                 <div className="container mx-auto py-[150px] flex flex-col items-center">
-                    <p className="text-md font-normal text-left text-text-light w-full sm:w-1/2">
+                    <p className="text-md font-normal text-left text-text-light w-full sm:w-1/2 px-5">
                         You have been sent an email to change password.
                         If the you haven't received an email yet, <a href="#" className="text-[#23f] font-bold" onClick={handleForgot}>Try Again</a>     
                     </p> 
