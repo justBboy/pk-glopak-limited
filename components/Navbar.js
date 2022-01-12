@@ -179,7 +179,7 @@ export default function Navbar() {
                 page == "auth/login"
                 &&
                 <div className="flex items-center">
-                    <h3 className="text-text-light pr-3 ">Don't have an account? </h3>
+                    <h3 className="text-text-light pr-3 hidden sm:inline">Don't have an account? </h3>
                     <Link href="/auth/Register">
                         <button className="border px-3 py-2 rounded-lg outline-none border-none bg-primary text-white font-bold text-xs flex items-center">
                         <span className="mr-3">Register</span>
@@ -192,7 +192,7 @@ export default function Navbar() {
                page.includes("auth/") && page !="auth/login"
                &&
                 <div className="flex items-center">
-                    <h3 className="text-text-light pr-3 ">Already have an account? </h3>
+                    <h3 className="text-text-light hidden sm:inline pr-3 ">Already have an account? </h3>
                     <Link href="/auth/Login">
                         <button className="border px-3 py-2 rounded-lg outline-none border-none bg-primary text-white font-bold text-xs flex items-center">
                         <span className="mr-3">Login</span>

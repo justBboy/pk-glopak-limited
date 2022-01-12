@@ -164,7 +164,7 @@ export default function Contact(){
                         </div>
                     </div>
                     <div className="mx-auto w-[310px] sm:w-full sm:h-[330px] h-[220px] relative shadow-md rounded-md overflow-hidden">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63314.25954818463!2d-2.348714573192079!3d7.3380331737286975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdacf2948671391%3A0xb6cac72b91017af!2sSunyani!5e0!3m2!1sen!2sgh!4v1641950976466!5m2!1sen!2sgh" width="100%" height="100%" style={{border: 0}} allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63314.25954818463!2d-2.348714573192079!3d7.3380331737286975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdacf2948671391%3A0xb6cac72b91017af!2sSunyani!5e0!3m2!1sen!2sgh!4v1641950976466!5m2!1sen!2sgh" width="100%" height="100%" style={{border: 0}} allowFullScreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
