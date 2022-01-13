@@ -1,10 +1,21 @@
 import { motion } from "framer-motion";
 import Head from "next/head"
+import { useEffect } from "react";
 import { Navbar } from "../../components";
+import { setPage } from "../../store/actions";
+import { useStore } from "../../store/store";
 export default function ForgotPassword(){
+    const [_, dispatch] = useStore();
     const handleForgot = () => {
         console.log("forgot")
     }
+
+    useEffect(() => {
+        let mounted = true
+        if(mounted)
+            dispatch(setPage('auth/forgot-password')) 
+        return () => {mounted=false}
+    }, [])
     return (
         <motion.div
         className="overflow-x-hidden bg-bg-dark min-h-screen relative"

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
 export default function Footer(){
@@ -9,7 +10,8 @@ export default function Footer(){
     return (
         <footer className="h-[100px] bg-md-gray flex flex-col justify-center relative">
             <div className="flex flex-col justify-center py-1 items-center">
-                <motion.button
+                <Link href="/service/Book">
+                    <motion.button
                         className="border-none py-2 px-5 bg-black text-white/80 z-20"
                         ref={buttonRef}
                         initial={{
@@ -27,6 +29,8 @@ export default function Footer(){
                         >
                             Book Service Now
                         </motion.button>
+                </Link>
+
                 <h6 className="text-dark-gray">©Copyright 2021 Pk-Glopak. All Rights Reserved</h6>
             </div>
         </footer>

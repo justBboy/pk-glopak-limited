@@ -5,6 +5,7 @@ import { useStore } from "../store/store";
 import { useEffect } from "react";
 import { setPage } from "../store/actions";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 
 export default function Hero(){
     const {ref: containerRef, inView: containerInView} = useInView({
@@ -92,26 +93,28 @@ export default function Hero(){
                            y: 0 
                         }}
                         className="text-md text-black/80 mt-5">Have An Amazing Experience</motion.p>
-                        <motion.button
-                        className="border-none p-2 sm:p-5 bg-black text-white/80 z-20"
-                        initial={{
-                        opacity: 0,
-                        scale: 0.4,
-                        y: 0
-                        }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            delay:3
-                        }}
-                        animate={{
-                            opacity:1,
-                            scale: 1,
-                            y: 30
-                        }}
-                        >
-                            Book Service
-                        </motion.button>
+                        <Link href="/service/Book">
+                            <motion.button
+                            className="border-none p-2 sm:p-5 bg-black text-white/80 z-20"
+                            initial={{
+                            opacity: 0,
+                            scale: 0.4,
+                            y: 0
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                delay:3
+                            }}
+                            animate={{
+                                opacity:1,
+                                scale: 1,
+                                y: 30
+                            }}
+                            >
+                                Book Service
+                            </motion.button>
+                        </Link>
                     </div>
                     <div className="hero-img flex justify-between overflow-visible mx-auto w-full h-full z-5">
                         <motion.div 

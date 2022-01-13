@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Book",
+        "page": "service/book",
+        "target": "/service/Book"
+    },
+    {
+        "title": "Monitor",
+        "page": "service/monitor",
+        "target": "/service/Monitor"
+    }
+]

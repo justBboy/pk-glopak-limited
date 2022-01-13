@@ -6,7 +6,7 @@ import {IoIosArrowBack} from "react-icons/io";
 import { useStore } from "../store/store";
 import navigation from "../constants/navigation.json";
 
-export default function Navbar() {
+export default function Navbar({children}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [{ page }] = useStore();
   
@@ -25,16 +25,21 @@ export default function Navbar() {
   return (
     <div
       className={`navbar transition-shadow duration-300 ease-in z-50 pl-5 pr-5 md:pl-0 md:pr-0 ${
-        isScrolled || page.includes("auth/")
+        isScrolled || page.includes("auth/") || page.includes("service")
           ? "fixed shadow-sm shadow-black/60 bg-white w-full pl-5 pr-5"
           : ""
-      } py-5`}
+      } ${page.includes("service") ? 'py-0' : 'py-5'} min-h-[60px] flex items-center`}
     >
       <div
         className={`container mx-auto flex items-center justify-between lg:px-20`}
       >
           {
-              page.includes("auth/") &&
+              (
+              page.includes("auth/") 
+              ||
+              page.includes("service/")
+              )
+              &&
               <Link href="/">
                 <button type="button" className="flex items-center">
                     <IoIosArrowBack className="text-4xl font-bold text-lighter" />
@@ -64,7 +69,7 @@ export default function Navbar() {
                         transition={{
                             type: "spring",
                             stiffness: 100,
-                            delay: 2.2,
+                            delay: 2.2 + ((indx/navigation.length) * 0.5),
                         }}
                         animate={{
                             opacity: 1,
@@ -72,18 +77,17 @@ export default function Navbar() {
                         }}
                         className={`relative ${indx > 0 ? 'ml-5' : ''}`}
                         >
-                        <Link href="/">
                             <a href={`${nav.target}`} className={`text-sm outline-none ${nav.page==page ? "text-lighter after:absolute" : ""} hover:text-lighter focus:text-lighter font-black antialiased text-light-gray after:content-[''] after:w-1/3 after:h-1 after:bg-lighter after:bottom-[-5px] after:left-[50%] after:translate-x-[-50%] after:hover:absolute after:focus:absolute`}>
-                            {nav.title}
+                                {nav.title}
                             </a>
-                        </Link>
                     </motion.li>
                   ))
               }
           </ul>
         )}
+        {children}
         {
-            !page.includes("auth/") 
+            page.includes("home") 
             &&
             <div className="flex">
             <Link href="/auth/Login">
