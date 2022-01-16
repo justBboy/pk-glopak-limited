@@ -31,6 +31,7 @@ export default function Services() {
   };
 
   useEffect(() => {
+    const mounted = true;
     const checkInView = () => {
       if(!containerRef.current) return;
       if (window.scrollY >= containerRef.current.offsetTop + 150) {
@@ -41,10 +42,12 @@ export default function Services() {
         setContainerInView(false);
       }
     };
-    window.addEventListener("scroll", checkInView);
+    if(mounted)
+      window.addEventListener("scroll", checkInView);
 
 
     return () => {
+      mounted=false;
       window.removeEventListener("scroll", checkInView);
     };
   }, []);

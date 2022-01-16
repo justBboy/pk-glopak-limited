@@ -112,7 +112,7 @@ export default function Contact(){
                         }}
                     className="mb-2">
                         <label className="block text-text-light font-normal text-sm" htmlFor="phone">Phone: </label>
-                        <input placeholder="e.g ansukwasi99@gmail.com" className="outline-none border border-text-light w-[310px] sm:w-[420px] h-[40px] p-5 text-dark-gray bg-light-gray rounded-md" value={phone} onChange={(e) => {setPhone(e.target.value)}} />
+                        <input placeholder="e.g 024*******" className="outline-none border border-text-light w-[310px] sm:w-[420px] h-[40px] p-5 text-dark-gray bg-light-gray rounded-md" value={phone} onChange={(e) => {setPhone(e.target.value)}} />
                     </motion.div>
                     <motion.div
                     ref={input4Ref}

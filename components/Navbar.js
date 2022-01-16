@@ -24,9 +24,9 @@ export default function Navbar({children}) {
   }, []);
   return (
     <div
-      className={`navbar transition-shadow duration-300 ease-in z-50 pl-5 pr-5 md:pl-0 md:pr-0 ${
+      className={`navbar transition-shadow duration-300 ease-in z-50 px-1 sm:pl-5 sm:pr-5 md:pl-0 md:pr-0 ${
         isScrolled || page.includes("auth/") || page.includes("service")
-          ? "fixed shadow-sm shadow-black/60 bg-white w-full pl-5 pr-5"
+          ? "fixed shadow-sm shadow-black/60 bg-white w-full sm:pl-5 sm:pr-5 px-1"
           : ""
       } ${page.includes("service") ? 'py-0' : 'py-5'} min-h-[60px] flex items-center`}
     >
@@ -42,7 +42,7 @@ export default function Navbar({children}) {
               &&
               <Link href="/">
                 <button type="button" className="flex items-center">
-                    <IoIosArrowBack className="text-4xl font-bold text-lighter" />
+                    <IoIosArrowBack className="text-xl sm:text-4xl font-bold text-lighter" />
                     <h2 className={`font-extrabold text-sm sm:text-lg text-light antialiased ${page.includes("auth/") ? 'mr-auto' : ''} inline`}>
                         Pk Glopak LTD
                     </h2>
